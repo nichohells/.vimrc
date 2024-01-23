@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-	
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -63,6 +63,10 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 " map n to launch nerd tree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
+nnoremap <Leader>cc :set colorcolumn=80<cr>
+
+nnoremap <Leader>ncc :set colorculm-=80<cr>
+
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
@@ -73,6 +77,8 @@ au BufNewFile
     \ set textwidth=79
     \ set expandtab
     \ set autoindent
+    \ set smartindent
+    \ set termguicolors
     \ set fileformat=unix
 
 let g:ale_linters = {'python': ['flake8']}
