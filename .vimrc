@@ -19,7 +19,14 @@ Plugin 'tmsvg/pear-tree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'voldikss/vim-floaterm'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'tribela/vim-transparent'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'preservim/tagbar'
+Plugin 'justinmk/vim-sneak'
+Plugin 'camspiers/lens.vim'
+Plugin 'mattn/emmet-vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -47,6 +54,8 @@ set foldmethod=indent
 
 set foldlevel=99
 
+" highlight linenr term=bold cterm=none ctermfg=172 ctermbg=none gui=none guifg=orange3
+
 nnoremap <space> za
 
 " quick save
@@ -54,18 +63,21 @@ nnoremap <c-s> :w<CR> " normal mode: save
 inoremap <c-s> <Esc>:w<CR>l " insert mode: escape to normal and save
 vnoremap <c-s> <Esc>:w<CR> " visual mode: escape to normal and save
 
+" tagbar toggle
+nmap <F8> :TagbarToggle<CR>
+
 " mapp cntrl-f to focus on nerd tree
-nnoremap <C-f> :NERDTreeFocus<CR>
+nnoremap <F5> :NERDTreeFocus<CR>
 
 " map t to nerd tree toggle
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <F6> :NERDTreeToggle<CR>
 
 " map n to launch nerd tree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 nnoremap <Leader>cc :set colorcolumn=80<cr>
 
-nnoremap <Leader>ncc :set colorculm-=80<cr>
+nnoremap <Leader>ncc :set colorcolumn-=80<cr>
 
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
@@ -85,7 +97,7 @@ let g:ale_linters = {'python': ['flake8']}
 
 " Configuration example
 let g:floaterm_keymap_new    = '<F7>'
-let g:floaterm_keymap_prev   = '<F8>'
+" let g:floaterm_keymap_prev   = '<F8>'
 let g:floaterm_keymap_next   = '<F9>'
 let g:floaterm_keymap_toggle = '<F12>'
 
